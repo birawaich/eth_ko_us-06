@@ -1,0 +1,7 @@
+[package]
+name = "eth_ko_us-06"
+version = "0.1.0"
+authors = ["birawaich <benjamin.stadler@bluewin.ch>"]
+edition = "2018"
+
+[dependencies]
