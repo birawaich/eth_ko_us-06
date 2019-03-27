@@ -20,12 +20,14 @@ fn main() {
 	println!("f2(z0) = {}",function_2(z0));
 	println!();
 	println!("(a)");
-	println!("Monte Carlo Intergration f1(z): {}",monte_carlo_intergration(1_u8, z0));
-	println!("Monte Carlo Intergration f2(z): {}",monte_carlo_intergration(2_u8, z0));
+	println!("Monte Carlo Intergration f1(z0): {}",monte_carlo_intergration(1_u8, z0));
+	println!("Monte Carlo Intergration f2(z0): {}",monte_carlo_intergration(2_u8, z0));
 	println!();
 	println!("(b)");
-	println!("Approximation f1(z): {}",approximation(1_u8, z0));
-	println!("Approximation f2(z): {}",approximation(2_u8, z0));
+	println!("Approximation f1(z0): {}",approximation(1_u8, z0));
+	println!("Approximation f2(z0): {}",approximation(2_u8, z0));
+	println!("-------------------------------------------------");
+	
 }
 
 /// does monte carlo intergration
