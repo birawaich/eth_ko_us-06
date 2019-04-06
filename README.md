@@ -23,5 +23,6 @@ Approximation f2(z0): -0.2771740382905018+0.029996530197301804i
 -------------------------------------------------
 ```
 ### Notes
-My first rust program & repository. Made for class: "Komplexe Analysis".
-Should implement _Monte Carlo Intergration_ and an _Approximation_ to examine the "Mittelwertsatz".
+- My first rust program & repository. Made for class: "Komplexe Analysis".
+- Heavily improved code by @troublescooter
+- Should implement _Monte Carlo Intergration_ and an _Approximation_ to examine the "Mittelwertsatz".
