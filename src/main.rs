@@ -37,6 +37,7 @@ fn main() {
     println!("Approximation f1(z0): {}", approximation(1_u8, z0));
     println!("Approximation f2(z0): {}", approximation(2_u8, z0));
     println!("-------------------------------------------------");
+    println!("-------------------------------------------------");
 }
 
 /// does monte carlo integration
@@ -53,19 +54,27 @@ fn monte_carlo_integration(function_id: u8, z0: Complex<f64>) -> Complex<f64> {
     let random_pool = Uniform::from(0.0_f64..1.0_f64);
     let mut random_arr = [0f64; N as usize];
 
-    // generate array of random floats
-    for i in 1..random_arr.len() {
-        random_arr[i as usize] = random_pool.sample(&mut rng);
+    // generate array of random floats iteratively
+    for i in 0..random_arr[..].len() {
+        random_arr[i] = random_pool.sample(&mut rng);
     }
+
     // iterate over the elements, adding intermediate results:
-    for elt in random_arr.iter() {
+    for elt in &random_arr[..] {
         result += func1or2(function_id, *elt, z0);
     }
 
     // even better: pure functional approach with no state:
-    let _result2 = random_arr
-        .iter()
-        .fold(ZERO, |acc, x| acc + func1or2(function_id, *x, z0));
+    // result = random_arr
+    //     .iter()
+    //     .fold(ZERO, |acc, x| acc + func1or2(function_id, *x, z0));
+
+    // terse Rustism
+    result = (0..N)
+        .map(|_| random_pool.sample(&mut rng))
+        .map(|elt| func1or2(function_id, elt, z0))
+        .sum();
+
 
     result /= Complex {
         re: f64::from(N),
